@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zassala Mário Bunga- Portfólio Profissional</title>
+    <meta name="description"
+        content="Portfólio profissional de Zassala Mário Bunga - Desenvolvedor Web Freelancer e Professor Particular">
+
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icones Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h2>Zassala Mário Bunga</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link">Início</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#experiencia" class="nav-link">Experiência</a>
+                <a href="#educacao" class="nav-link">Educação</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- TOPO -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Zassala
+                    <span class="hero-name">Mário Bunga</span>
+                </h1>
+                <p class="hero-subtitle">Desenvolvedor Web Freelancer e Professor Particular</p>
+                <p class="hero-description">
+                    Desenvolvedor Web Freelancer e Professor Particular com experiência sólida em Mátemática, Física,
+                    Química e Informática.
+                </p>
+                <p class="hero-description">
+                    Minha missão é transformar ideias em soluções digitais e facilitar o aprendizado de forma prática e
+                    estruturada. Neste espaço, compartilho meus projectos, trajetória académica e profissional, além de
+                    serviços que ofereço tanto na área de tecnologia quanto na educação.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('sobre')">
+                        Conhecer Mais
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contacto')">
+                        Entrar em Contacto
+                    </button>
+                </div>
+
+                <div class="hero-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>zassalamario@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+244 939 894 626</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="imagem1.jpg" alt="Professor Manuel Domingos" class="profile-image">
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" onclick="scrollToSection('sobre')">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- SOBRE-->
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre Mim</h2>
+                <p class="section-subtitle">Conheça a minha trajetória e paixão por tecnologia e educação</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Introdução</h3>
+                    <p>
+                        Profissional multidisciplinar com formação em Engenharia Informática e paixão por tecnologia,
+                        ensino e inovação.
+                    </p>
+                    <p>
+                        Atuo no desenvolvimento de sistemas e aplicações web, com foco em usabilidade, desempenho e
+                        escalabilidade. Além disso, trabalho como professor particular, ajudando alunos no ensino
+                        básico, médio e superior a superarem desafios em exatas e tecnologia.
+                    </p>
+                    <p>
+                        Meus projetos unem criatividade e conhecimento técnico, e meu objectivo é entregar resultados
+                        práticos e personalizados, seja desenvolvendo uma plataforma completa ou preparando estudantes
+                        para o maiores desafios académicos.
+                    </p>
+                </div>
+
+                <div class="about-specializations">
+                    <div class="card">
+                        <h4>Áreas de Especialização</h4>
+                        <ul class="specialization-list">
+                            <li>Programação Web</li>
+                            <li>Designer Gráfico</li>
+                            <li>Marketing Digital</li>
+                            <li>Pedagogia e Didática</li>
+                            <li>Metodologias Ativas de Ensino</li>
+                            <li>Cursos Complementares em Desenvolvimento de Software</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h3>Competências</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>Ensino</h4>
+                        <p>Metodologias modernas de ensino e aprendizagem</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Liderança</h4>
+                        <p>Gestão de equipas e projetos profissionais</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Projectos e Investigação</h4>
+                        <p>Desenvolvimento de pesquisas e projetcos inovadores</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>Acompanhamento Educacional</h4>
+                        <p>Estratégias para melhoria educacional</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Colaboração</h4>
+                        <p>Parcerias com profissionais de áreas diversas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIÊNCIA -->
+    <section id="experiencia" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experiência Profissional</h2>
+                <p class="section-subtitle">Uma trajetória de crescimento como profissional de TI e contribuições
+                    significativas para a educação
+                </p>
+            </div>
+
+            <div class="experience-section">
+                <h3>Carreira</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h4>Desenvolvedor Web</h4>
+                                <span class="timeline-date">2025 - Presente</span>
+                            </div>
+                            <h5 class="institution">Freelancer</h5>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Golf 2, Luanda</p>
+                            <p class="description">
+                                Desenvolvimento de websites, sistemas de gestão e aplicações personalizadas. Uma vasta
+                                experiência com HTML, CSS, JavaScript, PHP, MySQL e Java.
+                            </p>
+                            <div class="highlights">
+                                <span class="highlight">Projectos de excelência</span>
+                                <span class="highlight">Coordenador de 5 projetos académicos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h4>Professor Particular</h4>
+                                <span class="timeline-date">2024 - Presente</span>
+                            </div>
+                            <h5 class="institution">Osapi-Educação</h5>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Nova-Vida, Luanda</p>
+                            <p class="description">
+                                Aulas personalizadas para estudantes do ensino básico e médio e desenvolvimento de
+                                planos de estudo individualizados para melhorar resultados académicos.
+                            </p>
+                            <div class="highlights">
+                                <span class="highlight">10+ estudantes orientados</span>
+                                <span class="highlight">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h4>Técnico de Drywall</h4>
+                                <span class="timeline-date">2023- 2024</span>
+                            </div>
+                            <h5 class="institution">FCP - Prestação de Serviços</h5>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Talatona, Luanda</p>
+                            <p class="description">
+                                Trabalhos de acabamento de interior (estuque e pintura) e supervisão de diversos
+                                trabalhos
+                                estruturais simultaneamente.
+                            </p>
+                            <div class="highlights">
+                                <span class="highlight">Formação em Montagem de Racker e Teto Falso</span>
+                                <span class="highlight">15+ trabalhos concluídos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-section">
+                <h3>Projetos e Atividades</h3>
+                <div class="projects-grid">
+                    <div class="project-card" id="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h4>Sistema de Diagnóstico de Hardware</h4>
+                                <span class="project-date">Junho de 2025</span>
+                            </div>
+                            <span class="project-type">Conferência Científica da Universidade de Luanda</span>
+                            <p class="project-description">
+                                Organização e coordenação de atividades de desenvolvimento e responsável pela criação da
+                                interface gráfica e da lógica de obtenção dos dados internos dos computadores.
+                            </p>
+                            <div class="project-impact">Exposição e Networking Interno</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h4>Estilo e Charme - Plataforma de Comércico Electrónico</h4>
+                                <span class="project-date">2025</span>
+                            </div>
+                            <span class="project-type">Projeto Profissional</span>
+                            <p class="project-description">
+                                Responsável pelo desenvolvimento da plataforma, desde frontEnd e o BackEnd até a fase de
+                                implementação.
+                            </p>
+                            <div class="project-impact">kz 80.000 vencimento</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h4>Sistema de Gestão de Consultas</h4>
+                                <span class="project-date">2025</span>
+                            </div>
+                            <span class="project-type">Projecto Institucional - PFC</span>
+                            <p class="project-description">
+                                Criação e apresentação do sistema como requisito parcial para obtenção de uma avaliação
+                                final no curso de Programação Web.
+                            </p>
+                            <div class="project-impact">90% taxa de sucesso</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h4>Workshop Metodologias Ativas</h4>
+                                <span class="project-date">2024 - Presente</span>
+                            </div>
+                            <span class="project-type">Formação Continuada</span>
+                            <p class="project-description">
+                                Série de workshops para professores sobre metodologias ativas de aprendizagem.
+                            </p>
+                            <div class="project-impact">20+ professores formados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCAÇÃO -->
+    <section id="educacao" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Formação Académica</h2>
+                <p class="section-subtitle">Um percurso de aprendizagem contínua e excelência académica</p>
+            </div>
+
+            <div class="education-section">
+                <h3>Graus Académicos</h3>
+                <div class="education-list">
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-content">
+                            <div class="education-header">
+                                <div class="education-info">
+                                    <h4>Licenciatura em Engenharia Informática</h4>
+                                    <h5 class="institution">Universidade de Luanda - Instituto Politécnico de Gestão,
+                                        Logística e Transportes</h5>
+                                </div>
+                                <div class="education-details">
+                                    <span class="education-period">2022 - Presente</span>
+                                    <span class="education-grade">Mantendo avaliação alta</span>
+                                </div>
+                            </div>
+                            <p class="education-description">
+                                Frequência Universitária no curso de Engenharia Informática
+                            </p>
+                            <div class="thesis">
+                                <strong>TFC em desenvolvimento: </strong>Sistema Integrado de Recrutamento e Gestão de
+                                Processos Seletivos.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-content">
+                            <div class="education-header">
+                                <div class="education-info">
+                                    <h4>Ensino Médio em Técnico de Obras de Construção Civil</h4>
+                                    <h5 class="institution">Instituto Politécnico Industrial do Kilamba Kiaxi N° 8056
+                                        "Nova-Vida"</h5>
+                                </div>
+                                <div class="education-details">
+                                    <span class="education-period">2018 - 2022</span>
+                                    <span class="education-grade">15 valores</span>
+                                </div>
+                            </div>
+                            <p class="education-description">
+                                Estudo sobre as Técnicas de Condução de Obras de Construção Civil.
+                            </p>
+                            <div class="thesis">
+                                <strong>TFC:</strong> Impacto das Obras de Contrução Civil no Meio Ambiente
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="additional-education">
+                <div class="certifications">
+                    <h3><i class="fas fa-award"></i> Certificações Especializadas</h3>
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <div class="cert-content">
+                                <h4>Redes de Computadores e Configuração de Windows Server</h4>
+                                <p class="cert-institution">Vassama Academy</p>
+                                <span class="cert-type">Certificação Online</span>
+                            </div>
+                            <span class="cert-year">2026</span>
+                        </div>
+                           <div class="cert-item">
+                            <div class="cert-content">
+                                <h4>Certificação em CCNA 1 e 2</h4>
+                                <p class="cert-institution">CFITEL - Centro de Formação Tecnológico do Itel</p>
+                                <span class="cert-type">Certificação Presencial</span>
+                            </div>
+                            <span class="cert-year">2025</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-content">
+                                <h4>Certificação em Programação Web</h4>
+                                <p class="cert-institution">CFITEL - Centro de Formação Tecnológico do Itel</p>
+                                <span class="cert-type">Certificação Presencial</span>
+                            </div>
+                            <span class="cert-year">2025</span>
+                        </div>
+                            <div class="cert-item">
+                            <div class="cert-content">
+                                <h4>Certificação em Design Gráfico e Multimídia</h4>
+                                <p class="cert-institution">Inefor Corporate - Centro de Formação</p>
+                                <span class="cert-type">Certificação Online</span>
+                            </div>
+                            <span class="cert-year">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scholarships">
+                    <h3><i class="fas fa-book-open"></i> Bolsas e Subsídios de Estudo</h3>
+                    <div class="scholarship-list">
+                        <div class="scholarship-item">
+                            <div class="scholarship-content">
+                                <h4>Subsídio de Estudo do Embaixador da China</h4>
+                                <p class="scholarship-project">Programa de Premiação de 40 Estudantes com Excelente Desempenho em 10+ Instituições de Ensino</p>
+                            </div>
+                            <div class="scholarship-details">
+                                <span class="scholarship-period">2025</span>
+                                <span class="scholarship-amount">Kz ---</span>
+                            </div>
+                        </div>
+                        <div class="scholarship-item">
+                            <div class="scholarship-content">
+                                <h4>Bolsas de Estudo Internas - INAGBE</h4>
+                                <p class="scholarship-project">Programa de Bolsas de Estudos Internas do Instituto Nacional de Gestão de Bolsas de Estudo</p>
+                            </div>
+                            <div class="scholarship-details">
+                                <span class="scholarship-period">2023 - Presente</span>
+                                <span class="scholarship-amount">Kz ---</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="funding-total">
+                        <div class="funding-amount">Kz ---</div>
+                        <div class="funding-label">Total em financiamento obtido</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">Entre em contacto para colaborações, consultorias ou informações</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informações de Contacto</h3>
+                    <div class="contact-list">
+                        <div class="contact-item-full">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>E-mail</h4>
+                                <a href="mailto:joao.silva@universidade.pt">zassalamario@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item-full">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telefone</h4>
+                                <a href="tel:+351912345678">+244 939894626</a>
+                            </div>
+                        </div>
+                        <div class="contact-item-full">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Localização</h4>
+                                <span>Luanda, Angola</span>
+                            </div>
+                        </div>
+                        <div class="contact-item-full">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Disponibilidade</h4>
+                                <span>Segunda a Sexta, 9h às 18h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h4>Redes Sociais</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="LinkedIn">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Research Gate">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="ORCID">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Google Scholar">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h3>Enviar Mensagem</h3>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome *</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Assunto *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecione um assunto</option>
+                                <option value="consultoria">Consultoria Educacional</option>
+                                <option value="colaboracao">Colaboração Académica</option>
+                                <option value="palestra">Palestra/Workshop</option>
+                                <option value="orientacao">Orientação de Tese</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                            <span class="error-message" id="subject-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensagem *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <span class="checkmark"></span>
+                                Concordo com o tratamento dos meus dados pessoais conforme a política de privacidade *
+                            </label>
+                            <span class="error-message" id="privacy-error"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-form">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+
+                    <div id="form-success" class="form-success" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Mensagem enviada com sucesso!</h4>
+                        <p>Obrigado pelo seu contacto. Responderei o mais breve possível.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Zassala Mário Bunga</h3>
+                    <p>
+                        Dedicado à excelência no ensino superior e à formação de
+                        profissionais qualificados para os desafios do futuro.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sobre" onclick="scrollToSection('sobre')">Sobre</a></li>
+                        <li><a href="#experiencia" onclick="scrollToSection('experiencia')">Experiência</a></li>
+                        <li><a href="#educacao" onclick="scrollToSection('educacao')">Educação</a></li>
+                        <li><a href="#contacto" onclick="scrollToSection('contacto')">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="footer-contact">
+                        <a href="emailto:manueldomingos@gmail">zassalamario@gmail.com</a>
+                        <a href="tel:+244939894626">+244 939894626</a>
+                        <span>Luanda, Angola</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <span>&copy; <span id="current-year"></span> Zassala Mário Bunga.</span>
+                        <span>Desenvolvido com <i class="fas fa-heart"></i> para a educação.</span>
+                    </div>
+
+                    <div class="footer-legal">
+                        <a href="#" onclick="showModal('privacy')">Política de Privacidade</a>
+                        <a href="#" onclick="showModal('terms')">Termos de Uso</a>
+                    </div>
+                </div>
+
+                <div class="tech-credit">
+                    <p>Portfólio desenvolvido por Zassala Mário - DobuArts</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO PARA O TOPO -->
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
