@@ -1,13 +1,27 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize all functionality
     initNavigation();
     initScrollAnimations();
     initBackToTop();
     initContactForm();
+    initHeaderScroll();
+    initParallaxEffects();
     updateCurrentYear();
-    console.log('Portfolio loaded successfully!');
+    console.log('✨ Portfolio loaded successfully!');
 });
+
+// Header Scroll Effect
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
 
 // Navigation Functions
 function initNavigation() {
@@ -20,14 +34,16 @@ function initNavigation() {
         navToggle.addEventListener('click', function () {
             navMenu.classList.toggle('active');
 
-            // Toggle hamburger icon
+            // Toggle hamburger icon with animation
             const icon = navToggle.querySelector('i');
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+                icon.style.transform = 'rotate(180deg)';
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                icon.style.transform = 'rotate(0deg)';
             }
         });
     }
@@ -40,6 +56,7 @@ function initNavigation() {
                 const icon = navToggle.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                icon.style.transform = 'rotate(0deg)';
             }
         });
     });
@@ -53,7 +70,7 @@ function updateActiveNavLink() {
     const navLinks = document.querySelectorAll('.nav-link');
 
     let current = '';
-    const scrollPosition = window.scrollY + 100;
+    const scrollPosition = window.scrollY + 150;
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -86,7 +103,7 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Scroll Animations
+// Scroll Animations with Intersection Observer
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -97,29 +114,76 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
-
-                // Add stagger animation delay
-                const staggerElements = entry.target.querySelectorAll('[class*="stagger-"]');
-                staggerElements.forEach((el, index) => {
-                    const delay = getStaggerDelay(el.className);
+                
+                // Animate skill cards with stagger
+                const skillCards = entry.target.querySelectorAll('.skill-card');
+                skillCards.forEach((card, index) => {
                     setTimeout(() => {
-                        el.classList.add('animate');
-                    }, delay * 100);
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+
+                // Animate timeline items
+                const timelineItems = entry.target.querySelectorAll('.timeline-item');
+                timelineItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, index * 150);
+                });
+
+                // Animate project cards
+                const projectCards = entry.target.querySelectorAll('.project-card');
+                projectCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
                 });
             }
         });
     }, observerOptions);
 
-    // Observe all fade-in-up elements
-    const animatedElements = document.querySelectorAll('.fade-in-up');
-    animatedElements.forEach(el => {
-        observer.observe(el);
+    // Observe sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Initial styles for animated elements
+    document.querySelectorAll('.skill-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-30px)';
+        item.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
     });
 }
 
-function getStaggerDelay(className) {
-    const match = className.match(/stagger-(\d+)/);
-    return match ? parseInt(match[1]) : 0;
+// Parallax Effects
+function initParallaxEffects() {
+    const hero = document.querySelector('.hero');
+    
+    window.addEventListener('scroll', function() {
+        const scrolled = window.scrollY;
+        const heroContent = document.querySelector('.hero-content');
+        
+        if (heroContent && scrolled < window.innerHeight) {
+            heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+            heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
+        }
+    });
 }
 
 // Back to Top Button
@@ -128,7 +192,7 @@ function initBackToTop() {
 
     if (backToTopBtn) {
         window.addEventListener('scroll', function () {
-            if (window.scrollY > 300) {
+            if (window.scrollY > 400) {
                 backToTopBtn.classList.add('show');
             } else {
                 backToTopBtn.classList.remove('show');
@@ -160,6 +224,15 @@ function initContactForm() {
                 if (this.classList.contains('error')) {
                     validateField(this);
                 }
+            });
+
+            // Add focus effects
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
             });
         });
 
@@ -259,25 +332,42 @@ function handleFormSubmit(e) {
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
     submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
 
-    // Simulate form submission (replace with actual submission logic)
+    // Simulate form submission
     setTimeout(() => {
-        // Hide form and show success message
-        form.style.display = 'none';
-        formSuccess.style.display = 'block';
+        // Hide form and show success message with animation
+        form.style.opacity = '0';
+        form.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+            form.style.display = 'none';
+            formSuccess.style.display = 'block';
+            formSuccess.style.opacity = '0';
+            formSuccess.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                formSuccess.style.opacity = '1';
+                formSuccess.style.transform = 'scale(1)';
+                formSuccess.style.transition = 'all 0.3s ease';
+            }, 50);
+        }, 300);
 
-        // Log form data (in real implementation, send to server)
+        // Log form data
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        console.log('Form submitted with data:', data);
+        console.log('📧 Form submitted:', data);
 
         // Reset form after 5 seconds
         setTimeout(() => {
             form.reset();
-            form.style.display = 'block';
+            form.style.display = 'flex';
+            form.style.opacity = '1';
+            form.style.transform = 'scale(1)';
             formSuccess.style.display = 'none';
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
 
             // Remove any error states
             const errorGroups = form.querySelectorAll('.form-group.error');
@@ -290,7 +380,7 @@ function handleFormSubmit(e) {
             });
         }, 5000);
 
-    }, 2000); // Simulate 2 second delay
+    }, 2000);
 }
 
 // Utility Functions
@@ -301,12 +391,11 @@ function updateCurrentYear() {
     }
 }
 
-// Modal Functions (for privacy policy and terms)
+// Modal Functions
 function showModal(type) {
     const title = type === 'privacy' ? 'Política de Privacidade' : 'Termos de Uso';
     const content = type === 'privacy' ? getPrivacyPolicyContent() : getTermsContent();
 
-    // Create modal HTML
     const modalHTML = `
         <div class="modal-overlay" onclick="closeModal()">
             <div class="modal-content" onclick="event.stopPropagation()">
@@ -323,83 +412,73 @@ function showModal(type) {
         </div>
     `;
 
-    // Add modal to page
     document.body.insertAdjacentHTML('beforeend', modalHTML);
     document.body.classList.add('modal-open');
+    
+    // Animate modal in
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const modalContent = document.querySelector('.modal-content');
+    
+    setTimeout(() => {
+        modalOverlay.style.opacity = '1';
+        modalContent.style.transform = 'scale(1)';
+    }, 10);
 }
 
 function closeModal() {
     const modal = document.querySelector('.modal-overlay');
     if (modal) {
-        modal.remove();
-        document.body.classList.remove('modal-open');
+        modal.style.opacity = '0';
+        const modalContent = modal.querySelector('.modal-content');
+        modalContent.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+            modal.remove();
+            document.body.classList.remove('modal-open');
+        }, 300);
     }
 }
 
 function getPrivacyPolicyContent() {
     return `
         <h4>Recolha e Uso de Dados</h4>
-        <p>Este website recolhe apenas os dados fornecidos voluntariamente através do formulário de contacto, incluindo nome, e-mail, assunto e mensagem.</p>
+        <p>Este website recolhe apenas os dados fornecidos voluntariamente através do formulário de contacto.</p>
         
         <h4>Finalidade</h4>
-        <p>Os dados pessoais são utilizados exclusivamente para responder às suas solicitações e estabelecer contacto profissional.</p>
-        
-        <h4>Partilha de Dados</h4>
-        <p>Os seus dados pessoais não são partilhados com terceiros sem o seu consentimento explícito.</p>
+        <p>Os dados pessoais são utilizados exclusivamente para responder às suas solicitações.</p>
         
         <h4>Segurança</h4>
-        <p>Implementamos medidas de segurança adequadas para proteger os seus dados pessoais contra acesso não autorizado.</p>
+        <p>Implementamos medidas de segurança adequadas para proteger os seus dados pessoais.</p>
         
         <h4>Direitos</h4>
-        <p>Tem o direito de aceder, rectificar ou eliminar os seus dados pessoais. Para exercer estes direitos, contacte-nos através do e-mail fornecido.</p>
+        <p>Tem o direito de aceder, rectificar ou eliminar os seus dados pessoais a qualquer momento.</p>
     `;
 }
 
 function getTermsContent() {
     return `
         <h4>Uso do Website</h4>
-        <p>Este website destina-se a fornecer informações sobre os serviços profissionais do Zassala Mário Bunga.</p>
+        <p>Este website destina-se a fornecer informações sobre os serviços profissionais de Zassala Mário Bunga.</p>
         
         <h4>Propriedade Intelectual</h4>
-        <p>Todo o conteúdo deste website, incluindo textos, imagens e design, é propriedade do Zassala Mário Bunga.</p>
-        
-        <h4>Limitação de Responsabilidade</h4>
-        <p>As informações fornecidas neste website são apenas para fins informativos e não constituem aconselhamento profissional específico.</p>
+        <p>Todo o conteúdo deste website é propriedade de Zassala Mário Bunga.</p>
         
         <h4>Contacto Profissional</h4>
-        <p>O contacto através deste website destina-se exclusivamente a fins profissionais relacionados com educação, investigação e consultoria.</p>
+        <p>O contacto através deste website destina-se exclusivamente a fins profissionais.</p>
         
         <h4>Modificações</h4>
-        <p>Estes termos podem ser actualizados periodicamente. Recomendamos a consulta regular desta página.</p>
+        <p>Estes termos podem ser actualizados periodicamente.</p>
     `;
 }
 
 // Keyboard Navigation
 document.addEventListener('keydown', function (e) {
-    // Close modal with Escape key
     if (e.key === 'Escape') {
         closeModal();
     }
-
-    // Navigate sections with arrow keys (when not in form fields)
-    if (!document.activeElement.matches('input, textarea, select')) {
-        const sections = ['hero', 'sobre', 'experiencia', 'educacao', 'contacto'];
-        const currentIndex = sections.findIndex(section => {
-            const element = document.getElementById(section);
-            const rect = element.getBoundingClientRect();
-            return rect.top <= 100 && rect.bottom > 100;
-        });
-
-        if (e.key === 'ArrowDown' && currentIndex < sections.length - 1) {
-            scrollToSection(sections[currentIndex + 1]);
-        } else if (e.key === 'ArrowUp' && currentIndex > 0) {
-            scrollToSection(sections[currentIndex - 1]);
-        }
-    }
 });
 
-// Performance Optimization
-// Debounce scroll events
+// Performance Optimization - Debounce
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -421,9 +500,7 @@ window.addEventListener('scroll', optimizedScrollHandler);
 
 // Preload critical resources
 function preloadResources() {
-    const criticalImages = [
-        'imagem1.jpg'
-    ];
+    const criticalImages = ['imagem1.jpg'];
 
     criticalImages.forEach(src => {
         const link = document.createElement('link');
@@ -434,100 +511,27 @@ function preloadResources() {
     });
 }
 
-// Initialize preloading
 preloadResources();
 
-// Add CSS for modal
-const modalStyles = `
-<style>
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    padding: var(--spacing-4);
-}
-
-.modal-content {
-    background: var(--white);
-    border-radius: var(--radius-xl);
-    max-width: 600px;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: var(--shadow-xl);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-6);
-    border-bottom: 1px solid var(--gray-200);
-}
-
-.modal-header h3 {
-    margin: 0;
-    color: var(--gray-900);
-}
-
-.modal-close {
-    background: none;
-    border: none;
-    font-size: var(--font-size-xl);
-    color: var(--gray-500);
-    cursor: pointer;
-    padding: var(--spacing-2);
-    border-radius: var(--radius-md);
-    transition: var(--transition-normal);
-}
-
-.modal-close:hover {
-    background: var(--gray-100);
-    color: var(--gray-700);
-}
-
-.modal-body {
-    padding: var(--spacing-6);
-}
-
-.modal-body h4 {
-    color: var(--gray-900);
-    margin-bottom: var(--spacing-3);
-    margin-top: var(--spacing-6);
-}
-
-.modal-body h4:first-child {
-    margin-top: 0;
-}
-
-.modal-body p {
-    color: var(--gray-700);
-    line-height: 1.6;
-    margin-bottom: var(--spacing-4);
-}
-
-body.modal-open {
-    overflow: hidden;
-}
-
-@media (max-width: 768px) {
-    .modal-content {
-        margin: var(--spacing-4);
-        max-height: calc(100vh - 2 * var(--spacing-4));
-    }
-    
-    .modal-header,
-    .modal-body {
-        padding: var(--spacing-4);
+// Cursor effect for desktop (optional luxury touch)
+function initCursorEffect() {
+    if (window.matchMedia('(pointer: fine)').matches) {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        cursor.innerHTML = '<div class="cursor-dot"></div><div class="cursor-ring"></div>';
+        document.body.appendChild(cursor);
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        document.querySelectorAll('a, button, .card, .skill-card, .project-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
     }
 }
-</style>
-`;
 
-document.head.insertAdjacentHTML('beforeend', modalStyles);
+// Initialize cursor effect after page load
+// initCursorEffect(); // Uncomment to enable custom cursor
